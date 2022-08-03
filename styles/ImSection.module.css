@@ -1,0 +1,114 @@
+
+@keyframes backgroundGradient {
+    0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.decorativeCircle {
+    height: 500px;
+    width: 500px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: center;
+    transform: translate(-50%, 50%);
+    background-color: #37EB7B;
+    background: -webkit-linear-gradient(-45deg,
+    #6DAFFC, #37EB7B, #FE7C98);
+    background: linear-gradient(-45deg, #FE7C98, #6DAFFC, #37EB7B);
+    background-size: 400% 400%;
+	animation: backgroundGradient 5s ease infinite;
+    transition: transform 3s;
+}
+
+.decorativeCircle:hover {
+    transform: scale(1.5);
+}
+
+/* =============== */
+.textContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.textBox {
+    padding: 3rem;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    /* animation: showAndHide 1.3s ease-in-out infinite running; */
+}
+
+.leftBox {
+    right: 50%;
+    width: fit-content;
+}
+
+.rightBox {
+    left: 50%;
+    width: fit-content;
+}
+
+/* @keyframes showAndHide {
+    0% {
+        opacity: 0;
+        bottom: 0%;
+        transform: translateY(0%);
+    }
+    10% {
+        opacity: 1;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    90% {
+        opacity: 1;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    100% {
+        opacity: 0;
+        top: 100%;
+        transform: translateY(0%);
+    }
+} */
+
+/* ======= */
+/* @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap'); */
+
+.text1 {
+    color: black;
+}
+
+.text2 {
+    color: white;
+    background-color: black;
+}
+
+.text3 {
+    background: -webkit-linear-gradient(-45deg, #37EB7B, #6DAFFC);
+    background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    background-color: #6DAFFC;
+}
+
+/* ======== */
+
+.font1 {
+    font-weight: 900;
+    font-size: 120px;
+}
