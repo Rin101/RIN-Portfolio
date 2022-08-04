@@ -7,6 +7,20 @@
   user-select: none;
 }
 
+.container {
+  scroll-snap-type: y proximity;
+  overflow-y: scroll;
+  height: 100vh;
+  scroll-behavior: smooth;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container > section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  scroll-behavior: smooth;
+}
+
 .header {
   width: 100%;
   height: fit-content;
@@ -40,6 +54,18 @@
   margin-right: 10px;
   font-weight: 900;
   font-size: 13px;
+}
+
+#navUnderline {
+  height: 3px;
+  width: 33px;
+  background-color: black;
+  border-radius: 100vw;
+  position: absolute;
+  /* left: 7.7%; */
+  bottom: 20%;
+  transform: translateX(-50%);
+  transition: left ease 0.4s, opacity ease 0.4s;
 }
 
 .rightNav {
@@ -81,6 +107,9 @@
 .projects {
   height: 100vh;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ============================-- */
@@ -106,6 +135,7 @@
 
 .contactLabel {
   margin-right: 1.2rem;
+  color: #797c80;
 }
 
 .keyboardRow1 {

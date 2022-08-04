@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import styles from '../styles/Home.module.css'
 import ImStyles from '../styles/ImSection.module.css'
+import projectsStyles from '../styles/Projects.module.css'
 
 export default function Home() {
 
@@ -19,7 +20,41 @@ export default function Home() {
     {left: {text:"I'm",style:'text1',fontStyle:'font1'}, right: {text:"17",style:'text1',fontStyle:'font1'}, id: 9},
   ]
 
+  const navItemRef1 = useRef()
+  const navItemRef2 = useRef()
+  const topSectionRef = useRef()
+  const projectsSectionRef = useRef()
+  const contactSectionRef = useRef()
+  
   const [currentText, setCurrentText] = useState(ImTexts[0])
+  const [navLineRight, setNavLineRight] = useState(0)
+  const [navLineOpacity, setNavLineOpacity] = useState("0")
+
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+      const onScroll = () => setOffset(window.pageYOffset);
+      // clean up code
+      window.removeEventListener('scroll', onScroll);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      return () => window.removeEventListener('scroll', onScroll);
+  }, [])
+
+  useEffect(() => {
+    if (offset <= 0) {
+
+    } else if (offset < topSectionRef.current.offsetTop + (topSectionRef.current.offsetHeight/2)) {
+      setNavLineRight(getNavLinePosition(navItemRef1.current))
+      setNavLineOpacity("0")
+    } else if (offset < projectsSectionRef.current.offsetTop + (projectsSectionRef.current.offsetHeight/2)) {
+      setNavLineRight(getNavLinePosition(navItemRef1.current))
+      setNavLineOpacity("1")
+    } else if (offset < contactSectionRef.current.offsetTop + (contactSectionRef.current.offsetHeight/2)) {
+      setNavLineRight(getNavLinePosition(navItemRef2.current))
+      setNavLineOpacity("1")
+    }
+    console.log(offset)
+  }, [offset])
 
   useEffect(() => {
     const interval = setTimeout(() => {
@@ -33,6 +68,10 @@ export default function Home() {
     }, 1300)
   }, [currentText])
 
+  const getNavLinePosition = (document) => {
+    setNavLineRight(document.offsetLeft+(document.offsetWidth/2))
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -42,28 +81,47 @@ export default function Home() {
       </Head>
 
       <div className={styles.header}>
-        <div className={styles.logo}>RIN</div>
+        <div style={{left:navLineRight, opacity:navLineOpacity}} id={styles.navUnderline}></div>
+        <div className={styles.logo}><a href="#top"><h1>RIN</h1></a></div>
         <div className={styles.nav}>
-          <div className={styles.navItem}><p>Projects</p></div>
-          <div className={styles.navItem}><p>Contact</p></div>
+          <div className={styles.navItem} ref={navItemRef1}><a href="#projects"><p>Projects</p></a></div>
+          <div className={styles.navItem} ref={navItemRef2}><a href="#contact"><p>Contact</p></a></div>
+          {/* <div className={styles.navItem} ref={navItemRef1} onClick={(e) => getNavLinePosition(e.currentTarget)}><a href="#projects"><p>Projects</p></a></div>
+          <div className={styles.navItem} ref={navItemRef2} onClick={(e) => getNavLinePosition(e.currentTarget)}><a href="#contact"><p>Contact</p></a></div> */}
         </div>
         <div className={styles.rightNav}>
           <div className={styles.languageButton}><p>en/jp</p></div>
         </div>
       </div>
 
-      <section className={styles.ImSection}>
+      <section className={styles.ImSection} id="top">
         <div className={ImStyles.textContainer}>
           <div className={`${ImStyles[currentText.left.style]} ${ImStyles.textBox} ${ImStyles.leftBox}`}><h1 className={ImStyles[currentText.left.fontStyle]}>{ currentText.left.text }</h1></div>
           <div className={`${ImStyles[currentText.right.style]} ${ImStyles.textBox} ${ImStyles.rightBox}`}><h1 className={ImStyles[currentText.right.fontStyle]}>{ currentText.right.text }</h1></div>
         </div>
       </section>
 
-      <section className={styles.projects}>
-        <div className={ImStyles.decorativeCircle}>where did my projects go</div>
+      <section className={styles.projects} id="projects">
+        <div className={projectsStyles.decorativeCircle}></div>
+        <div className={projectsStyles.library}>
+          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
+          <div className={projectsStyles.projectFrame}><p>Pop Ranks</p></div>
+          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
+          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
+          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
+          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
+          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
+          <div className={projectsStyles.projectFrame}><p>Pop Ranks</p></div>
+          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
+          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
+          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
+          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
+          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
+          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
+        </div>
       </section>
 
-      <section className={styles.contacts}>
+      <section className={styles.contacts} id="contact">
         <div className={`${styles.keyboardRow1} ${styles.unselectable}`}>
           <div className={styles.pad}><p className={styles.padText}>1</p></div>
           <div className={styles.pad}><p className={styles.padText}>2</p></div>

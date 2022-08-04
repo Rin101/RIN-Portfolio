@@ -1,38 +1,3 @@
-
-@keyframes backgroundGradient {
-    0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
-.decorativeCircle {
-    height: 500px;
-    width: 500px;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 50%;
-    left: 50%;
-    transform-origin: center;
-    transform: translate(-50%, 50%);
-    background-color: #37EB7B;
-    background: -webkit-linear-gradient(-45deg,
-    #6DAFFC, #37EB7B, #FE7C98);
-    background: linear-gradient(-45deg, #FE7C98, #6DAFFC, #37EB7B);
-    background-size: 400% 400%;
-	animation: backgroundGradient 5s ease infinite;
-    transition: transform 3s;
-}
-
-.decorativeCircle:hover {
-    transform: scale(1.5);
-}
-
 /* =============== */
 .textContainer {
     display: flex;
