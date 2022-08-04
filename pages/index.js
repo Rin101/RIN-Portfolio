@@ -10,13 +10,13 @@ export default function Home() {
   const ImTexts = [
     {left: {text:"I'm",style:'text1',fontStyle:'font1'}, right: {text:"RIN",style:'text2',fontStyle:'font1'}, id:0},
     {left: {text:"I'm",style:'text1',fontStyle:'font1'}, right: {text:"Creative",style:'text2',fontStyle:'font1'}, id:1},
-    {left: {text:"I Love",style:'text2',fontStyle:'font1'}, right: {text:"Grunge",style:'text1',fontStyle:'font1'}, id:2},
+    {left: {text:"I Love",style:'text4',fontStyle:'font1'}, right: {text:"Grunge",style:'text2',fontStyle:'font1'}, id:2},
     {left: {text:"I'm",style:'text1',fontStyle:'font1'}, right: {text:"Bilingal",style:'text2',fontStyle:'font1'}, id:3},
     {left: {text:"I'm",style:'text1',fontStyle:'font1'}, right: {text:"RIN",style:'text3',fontStyle:'font1'}, id:4},
     {left: {text:"I'm not",style:'text2',fontStyle:'font1'}, right: {text:"Kurt Cobain",style:'text2',fontStyle:'font1'}, id:5},
-    {left: {text:"I play",style:'text1',fontStyle:'font1'}, right: {text:"Guitar",style:'text1',fontStyle:'font1'}, id:6},
-    {left: {text:"I'm in",style:'text2',fontStyle:'font1'}, right: {text:"Tokyo",style:'text1',fontStyle:'font1'}, id:7},
-    {left: {text:"I play",style:'text1',fontStyle:'font1'}, right: {text:"Mahjong",style:'text1',fontStyle:'font1'}, id: 8},
+    {left: {text:"I play",style:'text2',fontStyle:'font1'}, right: {text:"Guitar",style:'text1',fontStyle:'font1'}, id:6},
+    {left: {text:"I'm in",style:'text4',fontStyle:'font1'}, right: {text:"Tokyo",style:'text2',fontStyle:'font1'}, id:7},
+    {left: {text:"I play",style:'text2',fontStyle:'font1'}, right: {text:"Mahjong",style:'text1',fontStyle:'font1'}, id: 8},
     {left: {text:"I'm",style:'text1',fontStyle:'font1'}, right: {text:"17",style:'text1',fontStyle:'font1'}, id: 9},
   ]
 
@@ -29,32 +29,33 @@ export default function Home() {
   const [currentText, setCurrentText] = useState(ImTexts[0])
   const [navLineRight, setNavLineRight] = useState(0)
   const [navLineOpacity, setNavLineOpacity] = useState("0")
+  const [column1Display, setColumn1Display] = useState('none')
 
   const [offset, setOffset] = useState(0);
 
-  useEffect(() => {
-      const onScroll = () => setOffset(window.pageYOffset);
-      // clean up code
-      window.removeEventListener('scroll', onScroll);
-      window.addEventListener('scroll', onScroll, { passive: true });
-      return () => window.removeEventListener('scroll', onScroll);
-  }, [])
+  // useEffect(() => {
+  //     const onScroll = () => setOffset(window.pageYOffset);
+  //     // clean up code
+  //     window.removeEventListener('scroll', onScroll);
+  //     window.addEventListener('scroll', onScroll, { passive: true });
+  //     return () => window.removeEventListener('scroll', onScroll);
+  // }, [])
 
-  useEffect(() => {
-    if (offset <= 0) {
+  // useEffect(() => {
+  //   if (offset <= 0) {
 
-    } else if (offset < topSectionRef.current.offsetTop + (topSectionRef.current.offsetHeight/2)) {
-      setNavLineRight(getNavLinePosition(navItemRef1.current))
-      setNavLineOpacity("0")
-    } else if (offset < projectsSectionRef.current.offsetTop + (projectsSectionRef.current.offsetHeight/2)) {
-      setNavLineRight(getNavLinePosition(navItemRef1.current))
-      setNavLineOpacity("1")
-    } else if (offset < contactSectionRef.current.offsetTop + (contactSectionRef.current.offsetHeight/2)) {
-      setNavLineRight(getNavLinePosition(navItemRef2.current))
-      setNavLineOpacity("1")
-    }
-    console.log(offset)
-  }, [offset])
+  //   } else if (offset < topSectionRef.current.offsetTop + (topSectionRef.current.offsetHeight/2)) {
+  //     setNavLineRight(getNavLinePosition(navItemRef1.current))
+  //     setNavLineOpacity("0")
+  //   } else if (offset < projectsSectionRef.current.offsetTop + (projectsSectionRef.current.offsetHeight/2)) {
+  //     setNavLineRight(getNavLinePosition(navItemRef1.current))
+  //     setNavLineOpacity("1")
+  //   } else if (offset < contactSectionRef.current.offsetTop + (contactSectionRef.current.offsetHeight/2)) {
+  //     setNavLineRight(getNavLinePosition(navItemRef2.current))
+  //     setNavLineOpacity("1")
+  //   }
+  //   console.log(offset)
+  // }, [offset])
 
   useEffect(() => {
     const interval = setTimeout(() => {
@@ -65,7 +66,7 @@ export default function Home() {
       // select in order
       const index = currentText.id
       index !== ImTexts.length - 1 ? setCurrentText(ImTexts[index + 1]) : setCurrentText(ImTexts[0])
-    }, 1300)
+    }, 1000)
   }, [currentText])
 
   const getNavLinePosition = (document) => {
@@ -84,10 +85,10 @@ export default function Home() {
         <div style={{left:navLineRight, opacity:navLineOpacity}} id={styles.navUnderline}></div>
         <div className={styles.logo}><a href="#top"><h1>RIN</h1></a></div>
         <div className={styles.nav}>
-          <div className={styles.navItem} ref={navItemRef1}><a href="#projects"><p>Projects</p></a></div>
-          <div className={styles.navItem} ref={navItemRef2}><a href="#contact"><p>Contact</p></a></div>
-          {/* <div className={styles.navItem} ref={navItemRef1} onClick={(e) => getNavLinePosition(e.currentTarget)}><a href="#projects"><p>Projects</p></a></div>
-          <div className={styles.navItem} ref={navItemRef2} onClick={(e) => getNavLinePosition(e.currentTarget)}><a href="#contact"><p>Contact</p></a></div> */}
+          {/* <div className={styles.navItem} ref={navItemRef1}><a href="#projects"><p>Projects</p></a></div>
+          <div className={styles.navItem} ref={navItemRef2}><a href="#contact"><p>Contact</p></a></div> */}
+          <div className={styles.navItem} ref={navItemRef1} onClick={(e) => getNavLinePosition(e.currentTarget)}><a href="#projects"><p>Projects</p></a></div>
+          <div className={styles.navItem} ref={navItemRef2} onClick={(e) => getNavLinePosition(e.currentTarget)}><a href="#contact"><p>Contact</p></a></div>
         </div>
         <div className={styles.rightNav}>
           <div className={styles.languageButton}><p>en/jp</p></div>
@@ -104,20 +105,38 @@ export default function Home() {
       <section className={styles.projects} id="projects">
         <div className={projectsStyles.decorativeCircle}></div>
         <div className={projectsStyles.library}>
-          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
-          <div className={projectsStyles.projectFrame}><p>Pop Ranks</p></div>
-          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
-          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
-          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
-          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
-          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
-          <div className={projectsStyles.projectFrame}><p>Pop Ranks</p></div>
-          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
-          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
-          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
-          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
-          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
-          <div className={projectsStyles.projectFrame}><p>POP RANKS</p></div>
+          <div className={projectsStyles.project}>
+            <a className={styles.unselectable} href='https://play.google.com/store/apps/details?id=com.rinrinrinrin.mahjongpracticeappv2'>
+              <div className={projectsStyles.projectFrame} style={{fontWeight:700,fontFamily: `'Roboto', 'M PLUS Rounded 1c', 'Noto Sans JP'`}}>
+                {/* <p>完全版麻雀トレーニング</p> */}
+                <Image className={projectsStyles.thumbnail} style={{borderRadius:"2rem"}} width={180} height={180} src={"/images/mah-app-icon.png"} alt="icon" />
+              </div>
+            </a>
+            <div className={projectsStyles.projectBox} style={{fontFamily: `'Roboto', 'M PLUS Rounded 1c', 'Noto Sans JP'`}}>
+              <p className={projectsStyles.title}>完全版麻雀トレーニング</p>
+              <p className={projectsStyles.details}>
+                <span style={{fontWeight:700}}>点数計算、メンチン何待ち、条件計算などの練習問題・やり方解説が詰め込まれたアプリ!</span>
+              </p>
+              <div className={projectsStyles.releaseDate}><i>August/2022</i></div>
+              <div className={projectsStyles.platformDetail}>
+                <a href='https://play.google.com/store/apps/details?id=com.rinrinrinrin.mahjongpracticeappv2&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img className={projectsStyles.googlePlayImage} alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
+                <div onClick={()=>setColumn1Display('flex')} className={`${projectsStyles.readColumn} ${styles.unselectable}`}><p>read column→</p></div>
+                <div className={projectsStyles.column} style={{display:column1Display}}>
+                  <div onClick={()=>setColumn1Display('none')} className={`${projectsStyles.closeColumn} ${styles.unselectable}`}>close</div>
+                  <p className={projectsStyles.columnTitle}>Creating Mahjong Practice App</p>
+                  <p className={projectsStyles.columnContent}>
+                    The entire process was new to me. React Native, running on an iPhone,
+                    creating a dev account, google adMob, and waiting for the app to get approved.
+                    I got pretty much satisfied after the app was public in google play, so it's really exhausting
+                    to work on all the additional features I was planning. The UI is really dull and I can't imagine
+                    who would want to use the app. ¯\_(ツ)_/¯
+                  </p>
+                  {/* <Image width={150} height={100} src={'/images/column/column-mah1.jpeg'} />
+                  <Image width={150} height={100} src={'/images/column/column-mah2.jpeg'} /> */}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
