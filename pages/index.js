@@ -57,17 +57,18 @@ export default function Home() {
   //   console.log(offset)
   // }, [offset])
 
-  useEffect(() => {
-    const interval = setTimeout(() => {
-      // random selection
-      // const tmpImTexts = [...ImTexts]
-      // tmpImTexts.splice(tmpImTexts.indexOf(currentText), 1)
-      // setCurrentText(tmpImTexts[Math.floor(Math.random()*(tmpImTexts.length-1))])
-      // select in order
-      const index = currentText.id
-      index !== ImTexts.length - 1 ? setCurrentText(ImTexts[index + 1]) : setCurrentText(ImTexts[0])
-    }, 1000)
-  }, [currentText])
+  // useEffect(() => {
+  //   const interval = setTimeout(() => {
+  //     // random selection
+  //     // const tmpImTexts = [...ImTexts]
+  //     // tmpImTexts.splice(tmpImTexts.indexOf(currentText), 1)
+  //     // setCurrentText(tmpImTexts[Math.floor(Math.random()*(tmpImTexts.length-1))])
+  //     // select in order
+  //     const index = currentText.id
+  //     index !== (ImTexts.length - 1) ? setCurrentText(ImTexts[index + 1]) : setCurrentText(ImTexts[0])
+  //   }, 1000)
+  //   return () => clearInterval(interval)
+  // }, [currentText])
 
   const getNavLinePosition = (document) => {
     setNavLineRight(document.offsetLeft+(document.offsetWidth/2))
@@ -119,7 +120,9 @@ export default function Home() {
               </p>
               <div className={projectsStyles.releaseDate}>August/2022</div>
               <div className={projectsStyles.platformDetail}>
-                <a href='https://play.google.com/store/apps/details?id=com.rinrinrinrin.mahjongpracticeappv2&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img className={projectsStyles.googlePlayImage} alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
+                <a href='https://play.google.com/store/apps/details?id=com.rinrinrinrin.mahjongpracticeappv2&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
+                  <Image className={projectsStyles.googlePlayImage} width={120} height={50} alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/>
+                </a>
                 <div onClick={()=>setColumn1Display('flex')} className={`${projectsStyles.readColumn} ${styles.unselectable}`}>
                   <p>read column</p>
                   <i className="fa-solid fa-chevron-right"></i>
@@ -132,8 +135,8 @@ export default function Home() {
                   <p className={projectsStyles.columnContent}>
                     The entire process was new to me. React Native, running on an iPhone,
                     creating a dev account, google adMob, and waiting for the app to get approved.
-                    I got pretty much satisfied after the app was public in google play, so it's really exhausting
-                    to work on all the additional features I was planning. The UI is really dull and I can't imagine
+                    I got pretty much satisfied after the app was public in google play, so it&apos;s really exhausting
+                    to work on all the additional features I was planning. The UI is really dull and I can&apos;t imagine
                     who would want to use the app. ¯\_(ツ)_/¯
                   </p>
                   {/* <Image width={150} height={100} src={'/images/column/column-mah1.jpeg'} />
