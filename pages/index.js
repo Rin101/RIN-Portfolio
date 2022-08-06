@@ -117,12 +117,17 @@ export default function Home() {
               <p className={projectsStyles.details}>
                 <span style={{fontWeight:700}}>点数計算、メンチン何待ち、条件計算などの練習問題・やり方解説が詰め込まれたアプリ!</span>
               </p>
-              <div className={projectsStyles.releaseDate}><i>August/2022</i></div>
+              <div className={projectsStyles.releaseDate}>August/2022</div>
               <div className={projectsStyles.platformDetail}>
                 <a href='https://play.google.com/store/apps/details?id=com.rinrinrinrin.mahjongpracticeappv2&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img className={projectsStyles.googlePlayImage} alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
-                <div onClick={()=>setColumn1Display('flex')} className={`${projectsStyles.readColumn} ${styles.unselectable}`}><p>read column→</p></div>
+                <div onClick={()=>setColumn1Display('flex')} className={`${projectsStyles.readColumn} ${styles.unselectable}`}>
+                  <p>read column</p>
+                  <i className="fa-solid fa-chevron-right"></i>
+                </div>
                 <div className={projectsStyles.column} style={{display:column1Display}}>
-                  <div onClick={()=>setColumn1Display('none')} className={`${projectsStyles.closeColumn} ${styles.unselectable}`}>close</div>
+                  <div onClick={()=>setColumn1Display('none')} className={`${projectsStyles.closeColumn} ${styles.unselectable}`}>
+                    <i className="fa-solid fa-xmark"></i>
+                  </div>
                   <p className={projectsStyles.columnTitle}>Creating Mahjong Practice App</p>
                   <p className={projectsStyles.columnContent}>
                     The entire process was new to me. React Native, running on an iPhone,

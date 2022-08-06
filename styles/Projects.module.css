@@ -47,6 +47,8 @@
     width: 13rem;
     margin-bottom: 1rem;
     text-align: center;
+    line-height: 1rem;
+    text-align: left;
 }
 
 .releaseDate {
@@ -71,6 +73,20 @@
     font-weight: 400;
     margin-left: 0.3rem;
     cursor: pointer;
+    display: flex;
+    transition: opacity ease 0.2s;
+}
+
+.readColumn:hover {
+    opacity: 0.4;
+}
+
+.readColumn p {
+    margin-right: 0.2rem;
+}
+
+.readColumn i {
+    color: rgb(190, 190, 190);
 }
 
 .column {
@@ -87,8 +103,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 15px;
     font-weight: 400;
+    font-family: 'Nunito';
 }
 
 .columnTitle {
@@ -98,23 +114,28 @@
 
 .columnContent {
     line-height: 1.4rem;
-    letter-spacing: 1.2px;
+    /* letter-spacing: 1.2px; */
     text-indent: 1rem;
     opacity: 0.8;
 }
 
-.column img {
-    /* height: 100%; */
-}
+/* .column img {
+    height: 100%;
+} */
 
 .closeColumn {
     position: absolute;
     top: 5%;
     right: 5%;
-    font-size: 0.8rem;
+    font-size: 1.1rem;
     font-weight: 400;
     opacity: 0.8;
     cursor: pointer;
+    transition: opacity ease 0.2s;
+}
+
+.closeColumn:hover {
+    opacity: 0.4;
 }
 
 /* ================================= */
