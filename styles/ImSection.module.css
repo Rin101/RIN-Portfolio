@@ -82,3 +82,22 @@
     font-weight: 900;
     font-size: 120px;
 }
+
+/* MEDIA QUERY */
+/* ========================---- */
+/* PHONE */
+/* ========================---- */
+@media all and (max-width: 35em) {
+
+    .textBox {
+        padding: 2rem;
+    }
+
+    .font1 {
+        font-size: 60px;
+    }
+}
+/* ========================---- */
+/* ========================---- */
+@media all and (min-width: 90em) {
+}

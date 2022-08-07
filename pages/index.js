@@ -192,6 +192,10 @@ export default function Home() {
                 <p className={styles.contact}><span className={styles.contactLabel}>Twitter:</span>Twitter</p>
                 <p className={styles.contact}><span className={styles.contactLabel}>Github:</span>Github</p>
               </div>
+              <div className={styles.infoContainer}>
+                <p className={styles.info}><span className={styles.infoLabel}>born in</span>3/14/2005</p>
+                <p className={styles.info}><span className={styles.infoLabel}>currently in</span>Tokyo</p>
+              </div>
             </div>
           </div>
           <div>
@@ -205,8 +209,41 @@ export default function Home() {
           </div>
         </div>
         <h2 className={styles.contactTitle}>#Contact</h2>
-        <p>3/14/2005</p>
-        <div className={styles.guideToRest}>↓scroll for more (like a notepad?)or付箋</div>
+        {/* <div className={styles.guideToRest}>↓scroll for more (like a notepad?)or付箋</div> */}
+      </section>
+
+      <section className={styles.contactMQsm} id="contact">
+        <h2 className={styles.contactTitle}>#Contact</h2>
+        <div style={{display: 'flex'}}>
+          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <div className={styles.addressContainer}>
+              <p className={styles.contact} style={{textAlign:'center'}}>Rintaro Kashiwabara</p>
+              <div className={styles.accountContainer}>
+                <div className={styles.contact}>
+                  <p className={styles.contactLabel}>email</p>
+                  <p className={styles.contactContent}>wayoftheforce101@gmail.com</p>
+                </div>
+                <div className={styles.contact}>
+                  <p className={styles.contactLabel}>phone</p>
+                  <p className={styles.contactContent}>+81 90-9292-4912</p>
+                </div>
+                <div style={{display: 'flex'}}>
+                  <div className={styles.contact}>
+                    <p className={styles.contactIcon} style={{marginRight:'1rem'}}><i className="fa-brands fa-twitter"></i></p>
+                  </div>
+                  <div className={styles.contact}>
+                    <p className={styles.contactIcon}><i className="fa-brands fa-github"></i></p>
+                  </div>
+                </div>
+              </div>
+              <div className={styles.infoContainer}>
+                <p className={styles.info}><span className={styles.infoLabel}>born in</span>3/14/2005</p>
+                <p className={styles.info}><span className={styles.infoLabel}>currently in</span>Tokyo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* <div className={styles.guideToRest}>↓scroll for more (like a notepad?)or付箋</div> */}
       </section>
 
     </div>

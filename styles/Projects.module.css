@@ -5,6 +5,7 @@
 
 .project {
     display: flex;
+    align-items: center;
 }
 
 .projectFrame {
@@ -78,11 +79,12 @@
 }
 
 .readColumn:hover {
-    opacity: 0.4;
+    opacity: 0.5;
 }
 
 .readColumn p {
     margin-right: 0.2rem;
+    color: rgb(94, 94, 94);
 }
 
 .readColumn i {
@@ -93,9 +95,10 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 50vh;
-    width: 50vw;
-    padding: 2rem 3rem;
+    height: fit-content;
+    max-height: 50vh;
+    width: 60vw;
+    padding: 4rem 3rem;
     background-color: white;
     box-shadow: 5px 5px 90px 10px rgba(255, 105, 135, 0.2);
     border-radius: 1.5rem;
@@ -171,4 +174,51 @@
 
 .decorativeCircle:hover {
     transform: scale(1.5);
+}
+
+/* MEDIA QUERY */
+/* ========================---- */
+/* PHONE */
+/* ========================---- */
+@media all and (max-width: 40em) {
+
+    .project {
+        flex-direction: column;
+    }
+
+    .projectFrame {
+        margin: 0 0 2rem 0;
+    }
+
+    .details {
+        width: 60%;
+    }
+
+    .releaseDate {
+        margin-bottom: 2rem;
+    }
+
+    .platformDetail {
+        width: 60%;
+        justify-content: space-around;
+    }
+
+    /* ------------------ */
+    .column {
+        max-height: 70vh;
+        height: fit-content;
+        width: 90vw;
+        overflow-y: scroll;
+        letter-spacing: 0.8px;
+        padding: 3rem 2rem;
+    }
+
+    /* ------------------ */
+    .decorativeCircle {
+        display: none;
+    }
+}
+/* ========================---- */
+/* ========================---- */
+@media all and (min-width: 90em) {
 }
