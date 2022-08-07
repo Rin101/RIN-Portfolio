@@ -390,6 +390,12 @@
   }
 
 }
+
+@media all and (max-width: 80em) {
+  .container {
+    scroll-snap-type: y mandatory;
+  }
+}
 /* ========================---- */
 /* ========================---- */
 @media all and (min-width: 90em) {

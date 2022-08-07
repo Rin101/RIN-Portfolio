@@ -57,18 +57,18 @@ export default function Home() {
   //   console.log(offset)
   // }, [offset])
 
-  // useEffect(() => {
-  //   const interval = setTimeout(() => {
-  //     // random selection
-  //     // const tmpImTexts = [...ImTexts]
-  //     // tmpImTexts.splice(tmpImTexts.indexOf(currentText), 1)
-  //     // setCurrentText(tmpImTexts[Math.floor(Math.random()*(tmpImTexts.length-1))])
-  //     // select in order
-  //     const index = currentText.id
-  //     index !== (ImTexts.length - 1) ? setCurrentText(ImTexts[index + 1]) : setCurrentText(ImTexts[0])
-  //   }, 1000)
-  //   return () => clearInterval(interval)
-  // }, [currentText])
+  useEffect(() => {
+    const interval = setTimeout(() => {
+      // random selection
+      // const tmpImTexts = [...ImTexts]
+      // tmpImTexts.splice(tmpImTexts.indexOf(currentText), 1)
+      // setCurrentText(tmpImTexts[Math.floor(Math.random()*(tmpImTexts.length-1))])
+      // select in order
+      const index = currentText.id
+      index !== (ImTexts.length - 1) ? setCurrentText(ImTexts[index + 1]) : setCurrentText(ImTexts[0])
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [currentText])
 
   const getNavLinePosition = (document) => {
     setNavLineRight(document.offsetLeft+(document.offsetWidth/2))
