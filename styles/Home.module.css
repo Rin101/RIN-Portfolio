@@ -399,7 +399,26 @@
 /* ========================---- */
 /* ========================---- */
 @media all and (min-width: 90em) {
-  /* .container {
-    background-color: ;
-  } */
+  .container {
+    scroll-snap-type: y mandatory;
+  }
+
+  .logo {
+    font-size: 3.2rem;
+    margin: 1rem 2rem;
+  }
+
+  .navItem {
+    margin-right: 1.2rem;
+    font-size: 1.3rem;
+  }
+
+  .languageButton {
+    font-size: 1.4rem;
+  }
+  
+  /* ---------------------- */
+  .contactTitle {
+    font-size: 9rem;
+  }
 }

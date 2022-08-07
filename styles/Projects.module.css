@@ -155,8 +155,8 @@
 }
 
 .decorativeCircle {
-    height: 500px;
-    width: 500px;
+    height: 300px;
+    width: 300px;
     border-radius: 50%;
     position: absolute;
     bottom: 50%;
