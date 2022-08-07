@@ -26,6 +26,7 @@ export default function Home() {
   const projectsSectionRef = useRef()
   const contactSectionRef = useRef()
   
+  const [index, setIndex] = useState(0)
   const [currentText, setCurrentText] = useState(ImTexts[0])
   const [navLineRight, setNavLineRight] = useState(0)
   const [navLineOpacity, setNavLineOpacity] = useState("0")
@@ -59,16 +60,14 @@ export default function Home() {
 
   useEffect(() => {
     const interval = setTimeout(() => {
-      // random selection
-      // const tmpImTexts = [...ImTexts]
-      // tmpImTexts.splice(tmpImTexts.indexOf(currentText), 1)
-      // setCurrentText(tmpImTexts[Math.floor(Math.random()*(tmpImTexts.length-1))])
-      // select in order
-      const index = currentText.id
-      index !== (ImTexts.length - 1) ? setCurrentText(ImTexts[index + 1]) : setCurrentText(ImTexts[0])
+      index !== (ImTexts.length - 1) ? setIndex(index + 1) : setIndex(0)
     }, 1000)
     return () => clearInterval(interval)
-  }, [currentText])
+  },)
+
+  useEffect(() => {
+    setCurrentText(ImTexts[index])
+  }, [index])
 
   const getNavLinePosition = (document) => {
     setNavLineRight(document.offsetLeft+(document.offsetWidth/2))

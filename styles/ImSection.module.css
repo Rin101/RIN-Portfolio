@@ -89,12 +89,56 @@
 /* ========================---- */
 @media all and (max-width: 35em) {
 
+    .textContainer {
+        flex-direction: column;
+    }
+
+    .textBox {
+        padding: 3rem;
+        width: max-content;
+        height: fit-content;
+        position: inherit;
+        /* animation: showAndHide 1.3s ease-in-out infinite running; */
+    }
+    
+    .leftBox {
+        right: inherit;
+    }
+    
+    .rightBox {
+        left: inherit;
+    }
+
+    /* ----------- */
+
     .textBox {
         padding: 2rem;
     }
 
     .font1 {
         font-size: 60px;
+    }
+}
+
+@media all and (max-width: 50em) {
+    .textContainer {
+        flex-direction: column;
+    }
+
+    .textBox {
+        padding: 3rem;
+        width: max-content;
+        height: fit-content;
+        position: inherit;
+        /* animation: showAndHide 1.3s ease-in-out infinite running; */
+    }
+    
+    .leftBox {
+        right: inherit;
+    }
+    
+    .rightBox {
+        left: inherit;
     }
 }
 /* ========================---- */
