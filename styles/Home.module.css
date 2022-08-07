@@ -328,9 +328,8 @@
 /* ========================---- */
 @media all and (max-width: 33em) {
 
-  .header {
-    padding-top: 0.5em;
-  }
+  /* .header {
+  } */
 
   .container {
     scroll-snap-type: y mandatory;
