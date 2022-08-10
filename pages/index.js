@@ -78,7 +78,7 @@ export default function Home() {
       <Head>
         <title>RIN&apos;s Porfolio</title>
         <meta name="description" content="RIN's porfolio site" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/rin-favicon.ico" />
       </Head>
 
       <div className={styles.header}>
