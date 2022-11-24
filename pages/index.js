@@ -7,6 +7,22 @@ import projectsStyles from '../styles/Projects.module.css'
 
 export default function Home() {
 
+  const getAge = () => {
+    const birthday = {year:2005, month:3, date:14}
+    const now = new Date()
+    const year = now.getFullYear()
+    const month = now.getMonth()
+    const date = now.getDate()
+    const isBeforeBirthday = (month < birthday.month) || (month == birthday.month && date < birthday.date)
+    let age = 17
+    if (isBeforeBirthday) {
+        age = (year - birthday.year) - 1
+    } else {
+        age = year - birthday.year
+    }
+    return age
+}
+
   const ImTexts = [
     {left: {text:"I'm",style:'text1',fontStyle:'font1'}, right: {text:"RIN",style:'text2',fontStyle:'font1'}, id:0},
     {left: {text:"I'm",style:'text1',fontStyle:'font1'}, right: {text:"Creative",style:'text2',fontStyle:'font1'}, id:1},
@@ -17,7 +33,7 @@ export default function Home() {
     {left: {text:"I play",style:'text2',fontStyle:'font1'}, right: {text:"Guitar",style:'text1',fontStyle:'font1'}, id:6},
     {left: {text:"I'm in",style:'text4',fontStyle:'font1'}, right: {text:"Tokyo",style:'text2',fontStyle:'font1'}, id:7},
     {left: {text:"I play",style:'text2',fontStyle:'font1'}, right: {text:"Mahjong",style:'text1',fontStyle:'font1'}, id: 8},
-    {left: {text:"I'm",style:'text1',fontStyle:'font1'}, right: {text:"17",style:'text1',fontStyle:'font1'}, id: 9},
+    {left: {text:"I'm",style:'text1',fontStyle:'font1'}, right: {text:getAge().toString(),style:'text1',fontStyle:'font1'}, id: 9},
   ]
 
   const navItemRef1 = useRef()
