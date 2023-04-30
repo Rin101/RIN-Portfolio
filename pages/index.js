@@ -32,7 +32,7 @@ export default function Home() {
     {left: {text:"I'm not",style:'text2',fontStyle:'font1'}, right: {text:"Kurt Cobain",style:'text2',fontStyle:'font1'}, id:5},
     {left: {text:"I play",style:'text2',fontStyle:'font1'}, right: {text:"Guitar",style:'text1',fontStyle:'font1'}, id:6},
     {left: {text:"I'm in",style:'text4',fontStyle:'font1'}, right: {text:"Tokyo",style:'text2',fontStyle:'font1'}, id:7},
-    {left: {text:"I play",style:'text2',fontStyle:'font1'}, right: {text:"Mahjong",style:'text1',fontStyle:'font1'}, id: 8},
+    {left: {text:"I'm an",style:'text2',fontStyle:'font1'}, right: {text:"Entrepreneur",style:'text1',fontStyle:'font1'}, id: 8},
     {left: {text:"I'm",style:'text1',fontStyle:'font1'}, right: {text:getAge().toString(),style:'text1',fontStyle:'font1'}, id: 9},
   ]
 
@@ -202,14 +202,9 @@ export default function Home() {
             <div className={styles.addressContainer}>
               <p className={styles.contact} style={{textAlign:'center'}}>Rintaro Kashiwabara</p>
               <div className={styles.accountContainer}>
-                <p className={styles.contact}><span className={styles.contactLabel}>email:</span>wayoftheforce101@gmail.com</p>
-                <p className={styles.contact}><span className={styles.contactLabel}>phone:</span>+81 90-9292-4912</p>
-                <p className={styles.contact}><span className={styles.contactLabel}>Twitter:</span>Twitter</p>
-                <p className={styles.contact}><span className={styles.contactLabel}>Github:</span>Github</p>
-              </div>
-              <div className={styles.infoContainer}>
-                <p className={styles.info}><span className={styles.infoLabel}>born in</span>3/14/2005</p>
-                <p className={styles.info}><span className={styles.infoLabel}>currently in</span>Tokyo</p>
+                <p className={styles.contact}><span className={styles.contactLabel}>Email:</span>wayoftheforce101@gmail.com</p>
+                <p className={styles.contact}><span className={styles.contactLabel}>Age:</span>{getAge().toString()}</p>
+                <p className={styles.contact}><span className={styles.contactLabel}>Currently in:</span>Tokyo</p>
               </div>
             </div>
           </div>
@@ -235,20 +230,8 @@ export default function Home() {
               <p className={styles.contact} style={{textAlign:'center'}}>Rintaro Kashiwabara</p>
               <div className={styles.accountContainer}>
                 <div className={styles.contact}>
-                  <p className={styles.contactLabel}>email</p>
+                  <p className={styles.contactLabel}>Email</p>
                   <p className={styles.contactContent}>wayoftheforce101@gmail.com</p>
-                </div>
-                <div className={styles.contact}>
-                  <p className={styles.contactLabel}>phone</p>
-                  <p className={styles.contactContent}>+81 90-9292-4912</p>
-                </div>
-                <div style={{display: 'flex'}}>
-                  <div className={styles.contact}>
-                    <p className={styles.contactIcon} style={{marginRight:'1rem'}}><i className="fa-brands fa-twitter"></i></p>
-                  </div>
-                  <div className={styles.contact}>
-                    <p className={styles.contactIcon}><i className="fa-brands fa-github"></i></p>
-                  </div>
                 </div>
               </div>
               <div className={styles.infoContainer}>
